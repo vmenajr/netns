@@ -21,7 +21,6 @@ The initial test is for codium and as such the shell script in /vagrant/run.sh w
 *Note*: This excludes X11 traffic
 
 ## References
-Please have the following installed before starting and, if you're using Windows...... well....
 - [Intro to namespaces](https://blog.scottlowe.org/2013/09/04/introducing-linux-network-namespaces/)
 - [socat intro](https://copyconstruct.medium.com/socat-29453e9fc8a6)
 - [Process network mitm with ip netns](https://bytefreaks.net/gnulinux/how-to-capture-all-network-traffic-of-a-single-process)
