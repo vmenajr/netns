@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-yum -y install -y wget curl xorg-x11-xauth xterm lsof strace socat nc tree
+yum -y install -y wget curl xorg-x11-xauth xterm lsof strace socat nc tree tcpdump
 yum -y install https://github.com/VSCodium/vscodium/releases/download/1.53.2/codium-1.53.2-1613090035.el7.x86_64.rpm
 #rpm --import https://www.virtualbox.org/download/oracle_vbox.asc
 #wget http://download.virtualbox.org/virtualbox/rpm/el/virtualbox.repo -O /etc/yum.repos.d/virtualbox.repo
