@@ -1,3 +1,9 @@
+# vagrant
+.vagrant
+
+# PCAPs
+*.pcap
+
 # Prerequisites
 *.d
 
