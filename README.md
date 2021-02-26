@@ -10,7 +10,7 @@ A place to execute a single process in it's own network namespace.  This to simp
 
 ## Setup
 - clone the repo
-- vagrant up
+- vagrant up test
 
 ## Test
 The initial test is for codium and as such the shell script in /vagrant/run.sh will execute codium in namespace test.
