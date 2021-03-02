@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
   config.ssh.forward_x11 = true
   [ "virtualbox", "parallels" ].each do |provider|
     config.vm.provider "#{provider}" do |p|
-      p.memory=1024
+      p.memory=4096
       p.cpus=2
 	  #p.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     end
@@ -28,8 +28,8 @@ Vagrant.configure("2") do |config|
     ".gitconfig",
     ".git_global_ignores",
     ".bash_aliases",
-    ".vimrc",
-    ".vim",
+    #".vimrc",
+    #".vim",
     ".mongorc.js",
   ]
   .each do |dotfile|

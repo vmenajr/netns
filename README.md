@@ -16,7 +16,12 @@ A place to execute a single process in it's own network namespace.  This to simp
 The initial test is for codium and as such the shell script in /vagrant/run.sh will execute codium in namespace test.
 - vagrant ssh
 - /vagrant/capture.sh &
-- /vagrant/run.sh
+- /vagrant/run.sh codium
+- Exercise codium a bit
+- kill tcpdump
+
+## Success criteria
+tcpdump should capture *ZERO* packets
 
 *Note*: This excludes X11 traffic
 

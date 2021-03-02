@@ -1,0 +1,8 @@
+{
+    "git.ignoreLegacyWarning": true,
+    "extensions.autoCheckUpdates": false,
+    "extensions.autoUpdate": false,
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "update.mode": "none"
+}
