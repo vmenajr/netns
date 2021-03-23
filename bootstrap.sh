@@ -49,7 +49,9 @@ sudo -u vagrant cp -v /vagrant/defaults.json .config/VSCodium/User/settings.json
 sudo -u vagrant wget -q https://open-vsx.org/api/vscodevim/vim/1.18.9/file/vscodevim.vim-1.18.9.vsix
 sudo -u vagrant wget -q https://open-vsx.org/api/ccls-project/ccls/0.1.29/file/ccls-project.ccls-0.1.29.vsix
 sudo -u vagrant wget -q https://open-vsx.org/api/redhat/java/0.76.0/file/redhat.java-0.76.0.vsix
-sudo -u vagrant wget -q https://open-vsx.org/api/eamodio/gitlens/11.3.0/file/eamodio.gitlens-11.3.0.vsix
+
+# Not supported in 1.48.2
+#sudo -u vagrant wget -q https://open-vsx.org/api/eamodio/gitlens/11.3.0/file/eamodio.gitlens-11.3.0.vsix
 
 for f in *.vsix; do
     sudo -u vagrant codium --install-extension $f
