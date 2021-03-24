@@ -1,0 +1,4 @@
+*.vsix  binary
+*.rpm   binary
+ninja-1.10.2    binary
+
