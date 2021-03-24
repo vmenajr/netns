@@ -1,0 +1,10 @@
+---
+extensions:
+  - ccls-project.ccls-0.1.29.vsix
+  - donjayamanne.git-extension-pack-0.1.3.vsix
+  - redhat.java-0.76.0.vsix
+  - vscodevim.vim-1.18.9.vsix
+
+rpms:
+  - codium-1.48.2-1598439338.el7.x86_64.rpm
+

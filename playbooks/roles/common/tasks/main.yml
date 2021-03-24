@@ -1,0 +1,49 @@
+---
+- name: Configure repositories
+  yum: 
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+      - epel-release
+      - centos-release-scl
+
+- name: Install default packages
+  yum: 
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+      - ascii
+      - cmake3
+      - curl
+      - htop
+      - jq
+      - lsof
+      - nc
+      - ngrep
+      - rh-git218
+      - the_silver_searcher
+      - socat
+      - strace
+      - tcpdump
+      - tcpflow
+      - tree
+      - vim
+      - wget
+      - xorg-x11-xauth
+      - xterm
+
+- name: Install ninja 1.10.2
+  ansible.builtin.copy: 
+    src: "{{ ninja }}"
+    dest: /usr/local/bin
+    mode: 0755
+
+- name: Install ninja link
+  ansible.builtin.file:
+    src: "/usr/local/bin/{{ ninja }}"
+    dest: /usr/local/bin/ninja
+    mode: 0755
+    state: link
+

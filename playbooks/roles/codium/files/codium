@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+set -e
+filename="${HOME}/.config/VSCodium/User/settings.json"
+
+# Ensure we have a folder structure and empty file if necessary
+mkdir -p $(dirname $filename)
+[[ -f $filename ]] || echo '{}' > $filename
+count=$(jq length $filename &> /dev/null || exit 0)
+[[ "${count}" == "" || "${count}" == "0" ]] && echo '{}' > $filename
+
+# The settings to be applied
+SETTINGS=$(cat <<EOF
+  .["git.ignoreLegacyWarning"] = true
+| .["extensions.autoCheckUpdates"] = false
+| .["extensions.autoUpdate"] = false
+| .["telemetry.enableCrashReporter"] = false
+| .["telemetry.enableTelemetry"] = false
+| .["update.mode"] = "none"
+EOF
+)
+
+# Merge the required keys into the existing settings
+contents=$(jq "$SETTINGS" $filename)
+
+# Update the  user's file
+echo "$contents" > $filename
+
+# Pick up the latest git
+source /opt/rh/rh-git218/enable
+
+# Run codium
+exec /bin/codium --extensions-dir /opt/codium $@
+

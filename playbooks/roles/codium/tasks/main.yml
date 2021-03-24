@@ -1,0 +1,46 @@
+---
+      
+- name: Load files
+  ansible.builtin.copy: 
+    src: "{{ item }}"
+    dest: /tmp
+    mode: 0644
+  loop: "{{ rpms + extensions }}"
+
+- name: Install rpm
+  yum: 
+    name: "/tmp/{{ item }}"
+    state: present
+  loop: "{{ rpms }}"
+
+- name: Create /opt/codium
+  ansible.builtin.file:
+    name: /opt/codium
+    state: directory
+    mode: 0775
+    group: vagrant
+
+- name: Copy codium script
+  ansible.builtin.copy: 
+    src: codium
+    mode: 0755
+    dest: /usr/local/bin
+
+- name: Install extensions
+  ansible.builtin.shell: /usr/local/bin/codium --install-extension /tmp/{{ item }}
+  become_user: vagrant
+  loop: "{{ extensions }}"
+
+- name: Increase max watches
+  sysctl:
+    name: fs.inotify.max_user_watches
+    value: "600000"
+    state: present
+    reload: yes
+
+- name: Cleanup
+  ansible.builtin.file: 
+    path: "/tmp/{{ item }}"
+    state: absent
+  loop: "{{ rpms + extensions }}"
+
